@@ -1,0 +1,11 @@
+@import './utils/variables';
+@import './Utils/mixins';
+
+@import './Base/typography';
+
+@import './Components/header';
+@import './Components/footer';
+@import './Components/information';
+@import './Components/activity';
+
+@import './Pages/accueil';

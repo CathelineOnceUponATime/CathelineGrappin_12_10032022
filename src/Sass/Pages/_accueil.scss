@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  font-family: roboto;
+}
+main {
+  display: flex;
+  flex-direction: row;
+}
+.accueil {
+  margin: 30px;
+  .separation-stat {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .information-stat {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+.nom {
+  color: $couleur-rouge;
+}
