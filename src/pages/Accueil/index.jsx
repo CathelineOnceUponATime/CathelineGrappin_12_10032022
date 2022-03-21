@@ -6,7 +6,9 @@ import glucide from '../../assets/glucide.svg'
 import lipide from '../../assets/lipide.svg'
 import Information from '../../components/Information'
 import Activity from '../../components/Activity'
-import Radar from '../../components/Radar'
+import PerformanceRadar from '../../components/Radar'
+import Objectif from '../../components/Objectif'
+import Score from '../../components/Score'
 
 function Accueil () {
   const [information, setInformation] = useState([])
@@ -15,7 +17,7 @@ function Accueil () {
     fetchInformationUser()
   }, [])
   async function fetchInformationUser () {
-    const info = await fetchInformation(18)
+    const info = await fetchInformation()
     setInformation(info)
   }
 
@@ -23,15 +25,16 @@ function Accueil () {
   return (
     <div className='accueil'>
       <h1> Bonjour <span className='nom'> {information?.data?.userInfos?.firstName} </span> </h1>
-      <h2> Félicitation ! Vous avez explosé vos objectifs hier 👏 </h2>
+      <h2> Félicitations ! Vous avez explosé vos objectifs hier 👏 </h2>
       <div className='separation-stat'>
-        <div>
-          <div>
+        <div className='stat'>
+          <div className='activity-graph'>
             <Activity />
           </div>
-          <div>
-            machin
-            <Radar />
+          <div className='graph-objectif'>
+            <Objectif />
+            <PerformanceRadar />
+            <Score />
           </div>
         </div>
         <div className='information-stat'>

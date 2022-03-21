@@ -1,6 +1,6 @@
 import { fetchActivity } from '../../Api'
 import { useState, useEffect } from 'react'
-import { BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis, Bar } from 'recharts'
+import { BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis, Bar } from 'recharts'
 
 function Activity () {
   const [activity, setActivity] = useState([])
@@ -10,22 +10,24 @@ function Activity () {
   }, [])
 
   async function fetchActivityUser () {
-    const info = await fetchActivity(18)
+    const info = await fetchActivity()
     setActivity(info)
   }
-
-  console.log('information :' + activity.data?.sessions?.[0].day)
   return (
     <div className='activity'>
-      <BarChart width={730} height={250} data={activity.data?.sessions} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-        <CartesianGrid strokeDasharray='3 3' />
-        <XAxis />
-        <YAxis type='number' dataKey='kilogram' />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey='kilogram' fill='#8884d8' />
-        <Bar dataKey='calories' fill='#82ca9d' />
-      </BarChart>
+      <ResponsiveContainer width='100%' height='100%'>
+        <BarChart width='50%' height='50%' data={activity}>
+          <CartesianGrid strokeDasharray='2' vertical={false} />
+          <XAxis dataKey='day' />
+          <XAxis dataKey='calories' type='number' />
+          <YAxis dataKey='kilogram' type='number' orientation='right' tickCount={20} interval={1} />
+          <YAxis dataKey='calories' type='number' yAxisId='calorie' hide />
+          <Tooltip cursor={{ strokeWidth: 2 }} />
+          <Legend verticalAlign='top' align='right' />
+          <Bar name='Poids (kg)' dataKey='kilogram' barSize={7} fill='#282D30' />
+          <Bar name='Calories brûlées (kCal)' dataKey='calories' barSize={7} yAxisId='calorie' fill='#E60000' />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   )
 }

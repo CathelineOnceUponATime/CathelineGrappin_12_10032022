@@ -9,7 +9,7 @@ function Header () {
         <NavLink to='/'> Accueil </NavLink>
         <NavLink to='/'> Profil </NavLink>
         <NavLink to='/'> Réglage </NavLink>
-        <NavLink to='/'> Communauté </NavLink>
+        <NavLink className='communaute' to='/'> Communauté </NavLink>
       </nav>
     </header>
   )

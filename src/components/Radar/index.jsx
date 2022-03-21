@@ -1,8 +1,8 @@
 import { fetchPerformance } from '../../Api'
 import { useState, useEffect } from 'react'
-import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, RadarChart } from 'recharts'
+import { Legend, PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from 'recharts'
 
-function Radar () {
+function PerformanceRadar () {
   const [performance, setPerformance] = useState([])
 
   useEffect(() => {
@@ -10,21 +10,21 @@ function Radar () {
   }, [])
 
   async function fetchPerformanceUser () {
-    const info = await fetchPerformance(18)
-    setPerformance(info)
+    const data = await fetchPerformance()
+    setPerformance(data)
   }
-
-  console.log('information :' + performance.data?.data?.[0].value)
   return (
     <div className='radar'>
-      <RadarChart outerRadius={90} width={730} height={250} data={performance.data?.data}>
-        <PolarGrid />
-        <PolarAngleAxis dataKey='kind' />
-        <PolarRadiusAxis angle={30} domain={[0, 240]} />
-        <Radar dataKey='value' stroke='#8884d8' fill='#8884d8' fillOpacity={0.6} />
-      </RadarChart>
+      <ResponsiveContainer width='100%' height='100%'>
+        <RadarChart outerRadius={65} width='50%' height='50%' data={performance}>
+          <PolarGrid />
+          <PolarAngleAxis dataKey='kind' stroke='#FFFFFF' />
+          <Radar dataKey='value' stroke='#E60000' fill='#E60000' fillOpacity={0.7} legendType='none' />
+          <Legend />
+        </RadarChart>
+      </ResponsiveContainer>
     </div>
   )
 }
 
-export default Radar
+export default PerformanceRadar

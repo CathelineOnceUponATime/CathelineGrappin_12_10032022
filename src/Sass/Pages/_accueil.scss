@@ -7,7 +7,7 @@ main {
   flex-direction: row;
 }
 .accueil {
-  margin: 30px;
+  margin: 20px;
   .separation-stat {
     display: flex;
     flex-direction: row;
@@ -20,4 +20,29 @@ main {
 }
 .nom {
   color: $couleur-rouge;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  .graph-objectif {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.radar {
+  background-color: rgba(40, 45, 48, 1);
+  color: rgba(255, 255, 255, 1);
+}
+.activity {
+  width: 835px;
+  height: 320px;
+}
+
+.objectif,
+.score,
+.radar {
+  width: 258px;
+  height: 263px;
 }
