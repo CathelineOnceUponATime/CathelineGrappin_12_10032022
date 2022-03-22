@@ -1,4 +1,4 @@
-import { fetchActivity } from '../../Api'
+import { fetchActivity } from '../Api/Api'
 import { useState, useEffect } from 'react'
 import { BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis, Bar } from 'recharts'
 
@@ -17,10 +17,10 @@ function Activity () {
     <div className='activity'>
       <ResponsiveContainer width='100%' height='100%'>
         <BarChart width='50%' height='50%' data={activity}>
-          <CartesianGrid strokeDasharray='2' vertical={false} />
+          <CartesianGrid strokeDasharray='3 3' vertical={false} />
           <XAxis dataKey='day' />
           <XAxis dataKey='calories' type='number' />
-          <YAxis dataKey='kilogram' type='number' orientation='right' tickCount={20} interval={1} />
+          <YAxis dataKey='kilogram' type='number' orientation='right' tickCount={20} />
           <YAxis dataKey='calories' type='number' yAxisId='calorie' hide />
           <Tooltip cursor={{ strokeWidth: 2 }} />
           <Legend verticalAlign='top' align='right' />

@@ -57,19 +57,6 @@ export async function fetchAverageSession () {
   }
 }
 
-export async function fetchAverageSessionScore () {
-  if (mockedData) return USER_AVERAGE_SESSIONS.find(user => user.userId === userId)
-  let response
-  let data
-  try {
-    response = await fetch(server + '/average-sessions')
-    data = await response.json()
-    return data.data.sessions
-  } catch (err) {
-    console.log('----- Error -----', err)
-  }
-}
-
 export async function fetchPerformance () {
   if (mockedData) return USER_PERFORMANCE.find(user => user.userId === userId)
   let response
@@ -87,6 +74,7 @@ export async function fetchPerformance () {
     console.log('----- Error -----', err)
   }
 }
+
 const translation = {
   cardio: 'Cardio',
   energy: 'Energie',
@@ -97,7 +85,7 @@ const translation = {
 }
 
 function formatPerformanceData (dataOriginal) {
-  const { kind, data } = dataOriginal
+  const { data, kind } = dataOriginal
   const newData = []
   data.forEach(perf => {
     newData.push({

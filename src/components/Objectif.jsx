@@ -1,4 +1,4 @@
-import { fetchAverageSession } from '../../Api'
+import { fetchAverageSession } from '../Api/Api'
 import { useState, useEffect } from 'react'
 import { LineChart, Line, ResponsiveContainer, Tooltip, XAxis, Legend } from 'recharts'
 
@@ -14,7 +14,7 @@ function Objectif () {
     setObjectifUser(info)
   }
 
-  console.log('information truc :' + objectifUser?.[0]?.sessionLength)
+  console.log('information truc :' + objectifUser?.[6]?.day)
   return (
     <div className='objectif'>
       <ResponsiveContainer width='100%' height='100%'>

@@ -1,7 +1,7 @@
-import relaxation from '../../assets/relaxation.png'
-import natation from '../../assets/natation.png'
-import cyclisme from '../../assets/cyclisme.png'
-import musculation from '../../assets/musculation.png'
+import relaxation from '../assets/relaxation.png'
+import natation from '../assets/natation.png'
+import cyclisme from '../assets/cyclisme.png'
+import musculation from '../assets/musculation.png'
 import { NavLink } from 'react-router-dom'
 
 function Footer () {
