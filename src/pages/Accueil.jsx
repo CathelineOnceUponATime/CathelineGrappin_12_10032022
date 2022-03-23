@@ -8,7 +8,7 @@ import Information from '../components/Information'
 import Activity from '../components/Activity'
 import PerformanceRadar from '../components/PerformanceRadar'
 import Objectif from '../components/Objectif'
-import Score from '../components/Score'
+import PerformanceScore from '../components/PerformanceScore'
 
 function Accueil () {
   const [information, setInformation] = useState([])
@@ -34,7 +34,7 @@ function Accueil () {
           <div className='graph-objectif'>
             <Objectif />
             <PerformanceRadar />
-            <Score />
+            <PerformanceScore />
           </div>
         </div>
         <div className='information-stat'>

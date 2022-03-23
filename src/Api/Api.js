@@ -4,7 +4,7 @@
 /* eslint no-undef: "error" */
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from './data'
 const mockedData = false
-const userId = 18 // recupérer de la barre d'adresse
+const userId = 12 // recupérer de la barre d'adresse
 const server = 'http://localhost:3000/user/' + userId
 
 export async function fetchInformation () {
@@ -15,6 +15,22 @@ export async function fetchInformation () {
     response = await fetch(server)
     data = await response.json()
     return data
+  } catch (err) {
+    console.log('----- Error -----', err)
+  }
+}
+
+export async function fetchInformationScore () {
+  if (mockedData) return USER_MAIN_DATA.find(user => user.userId === userId)
+  let response
+  let data
+  try {
+    response = await fetch(server)
+    data = await response.json()
+    const newData = formatScore({
+      data: data.data
+    })
+    return newData
   } catch (err) {
     console.log('----- Error -----', err)
   }
@@ -131,5 +147,21 @@ function formatSessionDays (dataOriginal) {
     })
     console.log(newData)
   })
+  return newData
+}
+
+function formatScore (dataOriginal) {
+  const { data } = dataOriginal
+  const newData = []
+  newData.push({
+    userId: data.userId,
+    todayScore: data.todayScore * 100
+  })
+  newData.push({
+    userId: data.userId,
+    todayScore: 100,
+    fill: '#ffffff00'
+  })
+  console.log(newData)
   return newData
 }
