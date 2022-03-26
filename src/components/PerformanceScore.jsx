@@ -13,14 +13,13 @@ function PerformanceScore () {
     const info = await fetchInformationScore()
     setScoreUser(info)
   }
-  function renderLegend (props) {
-    const { payload } = props
+  function renderLegend (info) {
     return (
       <div>
-        <p className='Score_pourcent'>
-          {payload?.[0]?.payload?.todayScore}%
+        <p>
+          {info?.payload[0]?.payload.todayScore}%
         </p>
-        <p className='Score_legend'> de votre objectif</p>
+        <p> de votre objectif</p>
       </div>
     )
   }

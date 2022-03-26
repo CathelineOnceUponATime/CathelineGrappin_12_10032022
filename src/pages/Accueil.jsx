@@ -1,4 +1,4 @@
-import { fetchInformation } from '../Api/Api'
+import { fetchInformation, fetchInformationUserInfo } from '../Api/Api'
 import { useState, useEffect } from 'react'
 import calorie from '../assets/calorie.svg'
 import proteine from '../assets/proteine.svg'
@@ -12,6 +12,7 @@ import PerformanceScore from '../components/PerformanceScore'
 
 function Accueil () {
   const [information, setInformation] = useState([])
+  const [informationUser, setInformationUser] = useState([])
 
   useEffect(() => {
     fetchInformationUser()
@@ -19,12 +20,12 @@ function Accueil () {
   async function fetchInformationUser () {
     const info = await fetchInformation()
     setInformation(info)
+    const infoUser = await fetchInformationUserInfo()
+    setInformationUser(infoUser)
   }
-
-  console.log('information :' + information?.data?.userInfos?.firstName)
   return (
     <div className='accueil'>
-      <h1> Bonjour <span className='nom'> {information?.data?.userInfos?.firstName} </span> </h1>
+      <h1> Bonjour <span className='nom'> {informationUser?.firstName} </span> </h1>
       <h2> Félicitations ! Vous avez explosé vos objectifs hier 👏 </h2>
       <div className='separation-stat'>
         <div className='stat'>
@@ -38,10 +39,10 @@ function Accueil () {
           </div>
         </div>
         <div className='information-stat'>
-          <Information icone={calorie} nbGramme={information?.data?.keyData?.calorieCount} type='Calories' />
-          <Information icone={proteine} nbGramme={information?.data?.keyData?.proteinCount} type='Proteines' />
-          <Information icone={glucide} nbGramme={information?.data?.keyData?.carbohydrateCount} type='Glucides' />
-          <Information icone={lipide} nbGramme={information?.data?.keyData?.lipidCount} type='Lipides' />
+          <Information icone={calorie} nbGramme={information?.calorieCount} type='Calories' />
+          <Information icone={proteine} nbGramme={information?.proteinCount} type='Proteines' />
+          <Information icone={glucide} nbGramme={information?.carbohydrateCount} type='Glucides' />
+          <Information icone={lipide} nbGramme={information?.lipidCount} type='Lipides' />
         </div>
       </div>
     </div>

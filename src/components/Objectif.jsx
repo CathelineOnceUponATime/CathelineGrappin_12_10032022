@@ -14,7 +14,7 @@ function Objectif () {
     setObjectifUser(info)
   }
 
-  console.log('information truc :' + objectifUser?.[6]?.day)
+  console.log('information objectif :' + objectifUser[0]?.sessionLength)
   return (
     <div className='objectif'>
       <ResponsiveContainer width='100%' height='100%'>

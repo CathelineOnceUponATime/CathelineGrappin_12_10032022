@@ -3,25 +3,64 @@
 /* global fetch, fetchInformation */
 /* eslint no-undef: "error" */
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from './data'
-const mockedData = false
-const userId = 12 // recupérer de la barre d'adresse
-const server = 'http://localhost:3000/user/' + userId
+
+const lienSite = window.location.href
+const url = new URL(lienSite)
+const searchParam = new URLSearchParams(url.search)
+console.log(lienSite)
+console.log(searchParam)
+let id
+if (searchParam.has('id')) {
+  id = parseInt(searchParam.get('id'))
+  console.log('id: ', id)
+}
+let mocked
+if (searchParam.has('mocked')) {
+  mocked = searchParam.get('mocked')
+  console.log('mocked: ', mocked)
+}
+const server = 'http://localhost:3000/user/' + id
 
 export async function fetchInformation () {
-  if (mockedData) return USER_MAIN_DATA.find(user => user.userId === userId)
+  if (mocked) {
+    const data = USER_MAIN_DATA.find(user => user.userId === id)
+    return data.keyData
+  }
   let response
   let data
   try {
     response = await fetch(server)
     data = await response.json()
-    return data
+    return data.data.keyData
+  } catch (err) {
+    console.log('----- Error -----', err)
+  }
+}
+
+export async function fetchInformationUserInfo () {
+  if (mocked) {
+    const data = USER_MAIN_DATA.find(user => user.userId === id)
+    return data.userInfos
+  }
+  let response
+  let data
+  try {
+    response = await fetch(server)
+    data = await response.json()
+    return data.data.userInfos
   } catch (err) {
     console.log('----- Error -----', err)
   }
 }
 
 export async function fetchInformationScore () {
-  if (mockedData) return USER_MAIN_DATA.find(user => user.userId === userId)
+  if (mocked) {
+    const data = USER_MAIN_DATA.find(user => user.userId === id)
+    const newData = formatScore({
+      data: data
+    })
+    return newData
+  }
   let response
   let data
   try {
@@ -37,7 +76,16 @@ export async function fetchInformationScore () {
 }
 
 export async function fetchActivity () {
-  if (mockedData) return USER_ACTIVITY.find(user => user.userId === userId)
+  if (mocked) {
+    const data = USER_ACTIVITY.find(user => user.userId === id)
+    const newData = formatActivityData({
+      sessions: data.sessions,
+      day: data.sessions.day,
+      kilogram: data.sessions.kilogram,
+      calories: data.sessions.calories
+    })
+    return newData
+  }
   let response
   let data
   try {
@@ -56,7 +104,16 @@ export async function fetchActivity () {
 }
 
 export async function fetchAverageSession () {
-  if (mockedData) return USER_AVERAGE_SESSIONS.find(user => user.userId === userId)
+  if (mocked) {
+    const data = USER_AVERAGE_SESSIONS.find(user => user.userId === id)
+    const newData = formatSessionDays({
+      sessions: data.sessions,
+      day: data.sessions.day,
+      sessionLength: data.sessions.sessionLength
+    })
+    console.log(newData)
+    return newData
+  }
   let response
   let data
   try {
@@ -74,7 +131,15 @@ export async function fetchAverageSession () {
 }
 
 export async function fetchPerformance () {
-  if (mockedData) return USER_PERFORMANCE.find(user => user.userId === userId)
+  if (mocked) {
+    const data = USER_PERFORMANCE.find(user => user.userId === id)
+    const newData = formatPerformanceData({
+      data: data.data,
+      kind: data.kind
+    })
+    newData.reverse()
+    return newData
+  }
   let response
   let data
   try {
@@ -152,10 +217,16 @@ function formatSessionDays (dataOriginal) {
 
 function formatScore (dataOriginal) {
   const { data } = dataOriginal
+  let score
+  if (data.todayScore === undefined) {
+    score = data.score
+  } else {
+    score = data.todayScore
+  }
   const newData = []
   newData.push({
     userId: data.userId,
-    todayScore: data.todayScore * 100
+    todayScore: score * 100
   })
   newData.push({
     userId: data.userId,

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './Sass/main.scss'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -12,7 +12,13 @@ ReactDOM.render(
       <Header />
       <main>
         <Footer />
-        <Accueil />
+        <Routes>
+          <Route path='/' element={<Accueil />}>
+            <Route path='?mocked:mocked'>
+              <Route path='&id:id' element={<Accueil />} />
+            </Route>
+          </Route>
+        </Routes>
       </main>
     </Router>
   </React.StrictMode>,

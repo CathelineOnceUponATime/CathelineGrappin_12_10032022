@@ -1,15 +1,14 @@
 import logo from '../assets/logo.png'
-import { NavLink } from 'react-router-dom'
 
 function Header () {
   return (
     <header>
       <nav>
         <img src={logo} alt='logo' />
-        <NavLink to='/'> Accueil </NavLink>
-        <NavLink to='/'> Profil </NavLink>
-        <NavLink to='/'> Réglage </NavLink>
-        <NavLink className='communaute' to='/'> Communauté </NavLink>
+        <span> Accueil </span>
+        <span> Profil </span>
+        <span> Réglage </span>
+        <span className='communaute'> Communauté </span>
       </nav>
     </header>
   )
