@@ -13,6 +13,7 @@ function PerformanceRadar () {
     const data = await fetchPerformance()
     setPerformance(data)
   }
+  if (performance.length === 0) return (<></>)
   return (
     <div className='radar'>
       <ResponsiveContainer width='100%' height='100%'>

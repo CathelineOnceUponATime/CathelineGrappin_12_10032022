@@ -1,3 +1,9 @@
+/**
+ * 
+ * @param {String} icone l'url de l'icone
+ * @param {Number}  nbGramme
+ * @returns 
+ */
 function Information ({ icone, nbGramme, type }) {
   return (
     <div className='information'>

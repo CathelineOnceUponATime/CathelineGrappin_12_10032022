@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
 import './Sass/main.scss'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -13,11 +13,8 @@ ReactDOM.render(
       <main>
         <Footer />
         <Routes>
-          <Route path='/' element={<Accueil />}>
-            <Route path='?mocked:mocked'>
-              <Route path='&id:id' element={<Accueil />} />
-            </Route>
-          </Route>
+          <Route path='/user/:id' element={<Accueil />} />
+          <Route path='*' element={<Navigate to='/user/12' />} />
         </Routes>
       </main>
     </Router>

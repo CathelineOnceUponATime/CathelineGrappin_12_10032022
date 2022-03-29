@@ -4,7 +4,7 @@
 /* eslint no-undef: "error" */
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from './data'
 
-const lienSite = window.location.href
+/*const lienSite = window.location.href
 const url = new URL(lienSite)
 const searchParam = new URLSearchParams(url.search)
 console.log(lienSite)
@@ -18,7 +18,11 @@ let mocked
 if (searchParam.has('mocked')) {
   mocked = searchParam.get('mocked')
   console.log('mocked: ', mocked)
-}
+}*/
+const [lienSite, search] = window.location.href.split('?')
+const id = parseInt(lienSite.split('/')[4]) || 12
+const mocked = search === 'mocked'
+
 const server = 'http://localhost:3000/user/' + id
 
 export async function fetchInformation () {
@@ -174,6 +178,7 @@ function formatPerformanceData (dataOriginal) {
       kind: translation[kind[perf.kind]]
     })
   })
+  console.log(newData)
   return newData
 }
 

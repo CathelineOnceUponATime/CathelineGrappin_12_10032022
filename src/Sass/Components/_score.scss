@@ -1,0 +1,26 @@
+.custom-legend-score {
+  &-score {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+  }
+  &-objectif {
+    text-align: center;
+  }
+}
+
+.scoreTruc {
+  background-color: rgba(251, 251, 251, 1);
+  position: relative;
+  h3 {
+    margin: 0;
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    left: 20px;
+    bottom: 0px;
+  }
+}
+.score-radial {
+  background-color: white;
+}
