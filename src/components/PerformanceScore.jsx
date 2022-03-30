@@ -19,7 +19,7 @@ function PerformanceScore () {
     <div className='scoreTruc'>
       <h3> Score </h3>
       <ResponsiveContainer width='100%' height='100%'>
-        <RadialBarChart cx='50%' cy='50%' innerRadius={90} barSize={10} outerRadius={120} data={scoreUser}>
+        <RadialBarChart cx='50%' cy='50%' innerRadius={70} barSize={10} outerRadius={120} data={scoreUser}>
           <RadialBar cornerRadius='50%' dataKey='todayScore' fill='#E60000' />
           <Legend content={<CustomLegendScore />} width='50%' wrapperStyle={{ top: '30%', right: '25%', textAlign: 'center', border: 'none', borderRadius: 3, lineHeight: '18px', color: '#000000' }} />
         </RadialBarChart>

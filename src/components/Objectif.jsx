@@ -1,7 +1,7 @@
 import { fetchAverageSession } from '../Api/Api'
 import { CustomTooltipObjectif } from '../assets/Custom'
 import { useState, useEffect } from 'react'
-import { LineChart, Line, ResponsiveContainer, Tooltip, XAxis, Legend } from 'recharts'
+import { LineChart, Line, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from 'recharts'
 
 function Objectif () {
   const [objectifUser, setObjectifUser] = useState([])
@@ -25,10 +25,11 @@ function Objectif () {
           width='50%' height='50%' data={objectifUser}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }} style={{ backgroundColor: '#FF0000' }}
         >
-          <XAxis dataKey='day' stroke='#FFFFFF' />
+          <XAxis dataKey='day' stroke='#FFFFFF' opacity={0.5} tickLine={false} axisLine={false} />
+          <YAxis padding={{ top: 100 }} stroke='#FFFFFF' opacity={0.5} tickLine={false} axisLine={false} hide />
           <Tooltip content={<CustomTooltipObjectif />} />
           <Legend />
-          <Line type='monotone' dataKey='sessionLength' stroke='#FFFFFF' dot={false} strokeWidth={2} legendType='none' />
+          <Line type='natural' dataKey='sessionLength' stroke='#FFFFFF' dot={false} strokeWidth={2} legendType='none' />
         </LineChart>
       </ResponsiveContainer>
     </div>

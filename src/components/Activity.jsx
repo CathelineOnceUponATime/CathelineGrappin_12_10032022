@@ -21,17 +21,18 @@ function Activity () {
   }
   return (
     <div className='activity'>
+      <h3> Acitivité quotidienne </h3>
       <ResponsiveContainer width='100%' height='100%'>
         <BarChart width='50%' height='50%' data={activity}>
           <CartesianGrid strokeDasharray='3 3' vertical={false} />
-          <XAxis dataKey='day' />
-          <XAxis dataKey='calories' type='number' />
-          <YAxis dataKey='kilogram' type='number' orientation='right' domain={['dataMin - 1', 'dataMax + 1']} />
+          <XAxis dataKey='day' tickLine={false} axisLine={false} />
+          <XAxis dataKey='calories' type='number' tickLine={false} axisLine={false} />
+          <YAxis dataKey='kilogram' type='number' tickLine={false} orientation='right' axisLine={false} domain={['dataMin - 1', 'dataMax + 1']} />
           <YAxis dataKey='calories' type='number' yAxisId='calorie' hide />
           <Tooltip content={<CustomTooltipActivity />} />
-          <Legend verticalAlign='top' align='right' />
-          <Bar name='Poids (kg)' dataKey='kilogram' barSize={7} fill='#282D30' />
-          <Bar name='Calories brûlées (kCal)' dataKey='calories' barSize={7} yAxisId='calorie' fill='#E60000' />
+          <Legend verticalAlign='top' align='right' iconType='circle' wrapperStyle={{ marginTop: '-23px' }} formatter={(value, entry, index) => <span className='text-color'>{value}</span>} />
+          <Bar name='Poids (kg)' dataKey='kilogram' radius={[10, 10, 0, 0]} barSize={7} fill='#282D30' />
+          <Bar name='Calories brûlées (kCal)' dataKey='calories' radius={[10, 10, 0, 0]} barSize={7} yAxisId='calorie' fill='#E60000' />
         </BarChart>
       </ResponsiveContainer>
     </div>

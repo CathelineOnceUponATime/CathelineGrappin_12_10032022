@@ -6,3 +6,16 @@
   color: white;
   padding: 10px;
 }
+.activity {
+  background-color: rgba(251, 251, 251, 1);
+  padding: 50px 20px 0px 20px;
+  position: relative;
+  h3 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .text-color {
+    color: rgba(116, 121, 140, 1);
+  }
+}

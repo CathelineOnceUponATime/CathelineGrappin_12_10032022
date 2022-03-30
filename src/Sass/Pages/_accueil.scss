@@ -9,20 +9,27 @@ main {
   display: flex;
   flex-direction: row;
 }
+h1 {
+  font-size: 48px;
+  margin: 20px 0px 5px 0px;
+}
+h2 {
+  font-size: 18px;
+  font-weight: 400;
+}
 .accueil {
   margin: 0px 0px 0px 10%;
   padding-left: 30px;
-  width: 100%;
+  width: 80%;
   height: 90vh;
   .separation-stat {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 99%;
     height: 70vh;
     .information-stat {
       display: flex;
       flex-direction: column;
-      width: 25%;
     }
   }
 }
@@ -47,13 +54,13 @@ main {
   color: rgba(255, 255, 255, 1);
 }
 .activity {
-  width: 835px;
-  height: 320px;
+  width: 610px;
+  height: 280px;
 }
 
 .objectif,
 .scoreTruc,
 .radar {
-  width: 258px;
-  height: 263px;
+  width: 200px;
+  height: 200px;
 }
