@@ -1,5 +1,9 @@
 import logo from '../assets/logo.png'
-
+/**
+ * Un élèment Header HTML incluant une barre de navigation
+ * et le logo SportSee.
+ * @component
+ */
 function Header () {
   return (
     <header>

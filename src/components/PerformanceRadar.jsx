@@ -1,7 +1,10 @@
 import { fetchPerformance } from '../Api/Api'
 import { useState, useEffect } from 'react'
 import { Legend, PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from 'recharts'
-
+/**
+ * un graphique représentant une évolution des capacités.
+ * @component
+ */
 function PerformanceRadar () {
   const [performance, setPerformance] = useState([])
 

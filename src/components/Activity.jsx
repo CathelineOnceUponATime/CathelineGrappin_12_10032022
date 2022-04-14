@@ -1,13 +1,14 @@
 import { fetchActivity } from '../Api/Api'
-import { CustomTooltipActivity } from '../assets/Custom'
+import { CustomTooltipActivity } from './Custom'
 import { useState, useEffect } from 'react'
 import { BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis, Bar } from 'recharts'
 
 /**
- * un graphique représentant...
- * @returns Element
+ * un graphique représentant un diagramme en barres avec
+ * l'évolution du poids
+ * et des calories brûlées.
+ * @component
  */
-
 function Activity () {
   const [activity, setActivity] = useState([])
 

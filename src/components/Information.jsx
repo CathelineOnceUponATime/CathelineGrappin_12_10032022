@@ -1,9 +1,11 @@
 /**
- * 
  * @param {String} icone l'url de l'icone
- * @param {Number}  nbGramme
- * @returns 
+ * @param {Number} nbGramme le nombre de grammes ou de calories
+ * @param {String} type le type d'information
+ * @component
  */
+import PropTypes from 'prop-types'
+
 function Information ({ icone, nbGramme, type }) {
   return (
     <div className='information'>
@@ -16,6 +18,12 @@ function Information ({ icone, nbGramme, type }) {
       </div>
     </div>
   )
+}
+
+Information.propTypes = {
+  icone: PropTypes.string.isRequired,
+  nbGramme: PropTypes.number,
+  type: PropTypes.string.isRequired
 }
 
 export default Information

@@ -4,21 +4,6 @@
 /* eslint no-undef: "error" */
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from './data'
 
-/*const lienSite = window.location.href
-const url = new URL(lienSite)
-const searchParam = new URLSearchParams(url.search)
-console.log(lienSite)
-console.log(searchParam)
-let id
-if (searchParam.has('id')) {
-  id = parseInt(searchParam.get('id'))
-  console.log('id: ', id)
-}
-let mocked
-if (searchParam.has('mocked')) {
-  mocked = searchParam.get('mocked')
-  console.log('mocked: ', mocked)
-}*/
 const [lienSite, search] = window.location.href.split('?')
 const id = parseInt(lienSite.split('/')[4]) || 12
 const mocked = search === 'mocked'
@@ -60,9 +45,7 @@ export async function fetchInformationUserInfo () {
 export async function fetchInformationScore () {
   if (mocked) {
     const data = USER_MAIN_DATA.find(user => user.userId === id)
-    const newData = formatScore({
-      data: data
-    })
+    const newData = formatScore({ data: data })
     return newData
   }
   let response
@@ -70,9 +53,7 @@ export async function fetchInformationScore () {
   try {
     response = await fetch(server)
     data = await response.json()
-    const newData = formatScore({
-      data: data.data
-    })
+    const newData = formatScore({ data: data.data })
     return newData
   } catch (err) {
     console.log('----- Error -----', err)
@@ -115,7 +96,6 @@ export async function fetchAverageSession () {
       day: data.sessions.day,
       sessionLength: data.sessions.sessionLength
     })
-    console.log(newData)
     return newData
   }
   let response
@@ -178,7 +158,6 @@ function formatPerformanceData (dataOriginal) {
       kind: translation[kind[perf.kind]]
     })
   })
-  console.log(newData)
   return newData
 }
 
@@ -215,7 +194,6 @@ function formatSessionDays (dataOriginal) {
       day: jour[sess.day],
       sessionLength: sess.sessionLength
     })
-    console.log(newData)
   })
   return newData
 }
@@ -238,6 +216,5 @@ function formatScore (dataOriginal) {
     todayScore: 100,
     fill: '#ffffff00'
   })
-  console.log(newData)
   return newData
 }

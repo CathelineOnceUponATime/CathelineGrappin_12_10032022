@@ -2,7 +2,11 @@ import relaxation from '../assets/relaxation.png'
 import natation from '../assets/natation.png'
 import cyclisme from '../assets/cyclisme.png'
 import musculation from '../assets/musculation.png'
-
+/**
+ * Un élèment Footer HTML agrémentées
+ * des logos des différentes activités.
+ * @component
+ */
 function Footer () {
   return (
     <footer>
