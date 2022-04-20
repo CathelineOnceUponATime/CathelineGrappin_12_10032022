@@ -30,6 +30,7 @@ h2 {
     .information-stat {
       display: flex;
       flex-direction: column;
+      margin-left: 10px;
     }
   }
 }
@@ -59,7 +60,7 @@ h2 {
 }
 
 .objectif,
-.scoreTruc,
+.scoreWrap,
 .radar {
   width: 200px;
   height: 200px;

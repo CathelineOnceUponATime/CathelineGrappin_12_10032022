@@ -10,7 +10,7 @@
   }
 }
 
-.scoreTruc {
+.scoreWrap {
   background-color: rgba(251, 251, 251, 1);
   position: relative;
   h3 {
@@ -20,6 +20,20 @@
     right: 0px;
     left: 20px;
     bottom: 0px;
+  }
+  .recharts-legend-wrapper {
+    position: absolute;
+    top: 20%;
+    right: 17.5%;
+    bottom: 22%!important;
+    left: 17.5%!important;
+    text-align: center;
+    width: 50%!important;
+    border: none;
+    border-radius: 50%;
+    line-height: 18px;
+    background-color: white;
+    padding: 15px;
   }
 }
 .score-radial {

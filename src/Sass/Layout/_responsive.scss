@@ -1,0 +1,45 @@
+@media (min-width: 1200px) {
+  .activity {
+    width: 800px;
+  }
+  .scoreWrap {
+    margin-right: 20px;
+  }
+}
+@media (min-width: 1500px) {
+  .activity {
+    width: 1000px;
+    height: 350px;
+  }
+
+  .objectif,
+  .scoreWrap,
+  .radar {
+    width: 300px;
+    height: 300px;
+  }
+
+  .scoreWrap {
+    .recharts-legend-wrapper {
+      top: 23%!important;
+      right: 0%!important;
+      bottom: 23%!important;
+      left: 25%!important;
+      width: 43%!important;
+      padding: 0;
+      margin: 17px 0px 17px 10px;
+      .custom-legend-score-score {
+        padding-top: 25px;
+      }
+    }
+  }
+  .information {
+    width: 300px;
+  }
+  .accueil {
+    width: 90%;
+  }
+  footer p {
+    width: 70px;
+  }
+}
