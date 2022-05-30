@@ -8,7 +8,7 @@ const [lienSite, search] = window.location.href.split('?')
 const id = parseInt(lienSite.split('/')[4]) || 12
 const mocked = search === 'mocked'
 
-const server = 'http://localhost:3000/user/' + id
+const server = 'https://sportsee-onceuponatime.herokuapp.com/user/' + id
 
 export async function fetchInformation () {
   if (mocked) {
