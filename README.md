@@ -19,6 +19,15 @@
 
 https://github.com/CathelineOnceUponATime/CathelineGrappin_12_10032022
 
+https://sportsee-onceuponatime.netlify.app/user/12?mocked
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=CathelineOnceUponATime_CathelineGrappin_12_10032022&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=CathelineOnceUponATime_CathelineGrappin_12_10032022)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=CathelineOnceUponATime_CathelineGrappin_12_10032022&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=CathelineOnceUponATime_CathelineGrappin_12_10032022)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=CathelineOnceUponATime_CathelineGrappin_12_10032022&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=CathelineOnceUponATime_CathelineGrappin_12_10032022)  
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=CathelineOnceUponATime_CathelineGrappin_12_10032022&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=CathelineOnceUponATime_CathelineGrappin_12_10032022)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=CathelineOnceUponATime_CathelineGrappin_12_10032022&metric=bugs)](https://sonarcloud.io/summary/new_code?id=CathelineOnceUponATime_CathelineGrappin_12_10032022)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=CathelineOnceUponATime_CathelineGrappin_12_10032022&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=CathelineOnceUponATime_CathelineGrappin_12_10032022)
+
 ## Resources provided
 
 [![lien-maquette-Figma](https://raw.githubusercontent.com/CathelineOnceUponATime/CathelineGrappin_12_10032022/main/src/assets/maquette.png)](https://www.figma.com/file/BMomGVZqLZb811mDMShpLu/UI-design-Sportify-FR?node-id=0%3A1)
